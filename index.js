@@ -21,7 +21,6 @@ app.use("/api", userRouter);
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
-
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -33,5 +32,5 @@ mongoose
     });
   })
   .catch((error) => {
-    console.error(`Error: ${error.message}`);
+    console.error(`Error connecting to mongo: ${error.message}`);
   });
